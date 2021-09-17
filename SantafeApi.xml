@@ -1,0 +1,56 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>SantafeApi</name>
+    </assembly>
+    <members>
+        <member name="M:SantafeApi.Controllers.AuthController.Login(SantafeApi.Models.LoginModel)">
+            <summary>
+            	Efetua o login no sistema e gerar um token do tipo - Bearer JWT
+            </summary>
+            <param name="loginModel">loginModel</param>
+            <returns>Retorna um token token JWT</returns>
+            <response code="200">Retorna o JWT</response>
+            <response code="400">Senha passada é inválida</response>
+            <response code="404">Usuário não existe</response>
+        </member>
+        <member name="M:SantafeApi.Controllers.AuthController.LoginWithFacebook(System.String)">
+            <summary>
+            	Efetua o login no sistema usando acesso via facebook e gera um token do tipo - Bearer JWT
+            </summary>
+            <param name="accessToken">accessToken</param>
+            <returns>Retorna um token token JWT</returns>
+            <response code="200">Retorna o JWT</response>
+            <response code="400">Erro durante a criação do usuário</response>
+        </member>
+        <member name="M:SantafeApi.Controllers.AuthController.Register(SantafeApi.Models.RegisterModel)">
+            <summary>
+            	Efetua o registro de um novo usuário.
+            </summary>
+            <param name="registerModel"></param>
+            <returns>Retorna uma mensagem de usuário cadastrado.</returns>
+            <response code="200"> retorna uma mensagem de sucesso.</response>
+            <response code="400"> retorna os possíveis erros do esquema de Model,</response>
+        </member>
+        <member name="M:SantafeApi.Controllers.AuthController.ResetPassword(SantafeApi.Models.ResetPasswordModel)">
+            <summary>
+            Solicita a geração de um token através do Email do usuário registrado.
+            </summary>
+            <param name="resetPasswordModel">Usado para receber o Email do usuário</param>
+            <returns>Retorna um token válido usado para resetar a senha do usuário.</returns>
+            <response code="200"> Retorna um JWT</response>
+            <response code="400"> Retorna mensagem de erro de usuário não encontrado</response>
+            <response code="500"> Serviço de email fora do ar</response>
+        </member>
+        <member name="M:SantafeApi.Controllers.AuthController.ResetPasswordWithToken(SantafeApi.Models.ResetPasswordTokenModel)">
+            <summary>
+            	Valida token passado e reseta a senha se for válido.
+            </summary>
+            <param name="resetPasswordTokenModel"></param>
+            <returns> Mensagem de sucesso</returns>
+            <response code="200">Mesagem de sucesso</response>
+            <response code="400">Erros gerados pelo UserManager</response>
+            <response code="404">Quando usuário não é encontrado</response>
+        </member>
+    </members>
+</doc>
